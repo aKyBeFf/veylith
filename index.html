@@ -1,0 +1,283 @@
+<!doctype html>
+<html lang="ru">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Veylith Client</title>
+<meta name="description" content="Veylith - клиент для Minecraft 1.21.4 на Fabric.">
+<link rel="icon" href="assets/logo-mark.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:ital,wght@0,400;0,500;0,600;1,600;1,700&family=Rubik:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Rounded:opsz,wght,FILL,GRAD@20..48,400,0..1,0&display=block">
+<link rel="stylesheet" href="assets/style.css">
+<link rel="stylesheet" href="assets/views.css">
+</head>
+<body>
+<canvas id="smoke" aria-hidden="true"></canvas>
+
+<header class="top">
+  <nav class="nav">
+    <a href="#/about">О клиенте</a>
+    <a href="#/gui">Интерфейс</a>
+    <a href="#/buy">Цены</a>
+  </nav>
+  <a class="mark" href="#/" aria-label="Veylith"><img src="assets/logo-mark.png" alt=""></a>
+  <div class="top-r"><a class="btn dark" href="#/profile">Профиль</a><a class="btn" href="#/buy">Купить</a></div>
+</header>
+
+<div class="view" data-view="home" data-title="Veylith Client">
+<section class="hero">
+  <div class="hero-bg" aria-hidden="true"></div>
+  <div class="hero-copy">
+    <div class="chips">
+      <span class="chip"><i data-lucide="tag"></i>Версия 1.0.0</span>
+      <span class="chip"><i data-lucide="box"></i>Minecraft 1.21.4</span>
+      <span class="chip"><span class="dot"></span>FunTime</span>
+    </div>
+    <h1>Veylith <i>Client</i></h1>
+    <p class="lead">Бой, визуал, автофермы и косметика в одном клиенте. Меню открывается на Right Shift.</p>
+    <div class="cta">
+      <a class="btn" href="#/buy">Купить доступ <i data-lucide="arrow-right"></i></a>
+      <a class="btn dark" href="#/gui">Интерфейс</a>
+    </div>
+  </div>
+</section>
+
+<section class="sec" id="about">
+  <div class="sec-head">
+    <span class="chip"><i data-lucide="layers"></i>Модули</span>
+    <h2 class="h2">О <i>клиенте</i></h2>
+    <p>Модули разбиты по категориям, у каждого свои настройки и отдельный бинд. Всё сохраняется автоматически.</p>
+  </div>
+
+  <div class="about">
+    <div class="panel mods">
+      <ul>
+        <li><span class="ic"><i data-lucide="swords"></i></span><b>Бой</b><p>Aura, Aim Assist, Trigger Bot, Auto Totem, Auto Swap</p></li>
+        <li><span class="ic"><i data-lucide="footprints"></i></span><b>Движение</b><p>Sprint, Auto Walk, Inventory Move, Anti AFK</p></li>
+        <li><span class="ic"><i data-lucide="eye"></i></span><b>Визуал</b><p>Chams, Target ESP, Storage ESP, Tracers, Jump Circles, Neon Hands, Hit Effects, Block Highlight, Fog, Ambience, Shaders, View Model, Motion Blur, Stretch, Full Bright, See Invisibles, Removals, HUD, Метки</p></li>
+        <li><span class="ic"><i data-lucide="sprout"></i></span><b>PvE</b><p>Автофермы тростника, нароста и булыжника, Auto Mine, Auto Warden</p></li>
+        <li><span class="ic"><i data-lucide="wrench"></i></span><b>Утилиты</b><p>Chest Stealer, Chest Helper, Free Camera, Free Lock, Auto Sell, Auto Drop, Auto Shift, Fast Exp, Item Scroller, Anti Break, Name Protect, Streamer Mode, Clan Upgrader, друзья и конфиги</p></li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="facts">
+    <div class="panel fact"><span class="ic"><i data-lucide="boxes"></i></span><b>49</b><span>модулей с отдельными настройками</span></div>
+    <div class="panel fact"><span class="ic"><i data-lucide="layout-grid"></i></span><b>6</b><span>категорий модулей</span></div>
+    <div class="panel fact"><span class="ic"><i data-lucide="server"></i></span><b>FunTime</b><span>отдельная поддержка сервера</span></div>
+  </div>
+</section>
+
+<section class="sec" id="gui">
+  <div class="sec-head">
+    <span class="chip"><i data-lucide="mouse-pointer-2"></i>Right Shift</span>
+    <h2 class="h2">Меню <i>клиента</i></h2>
+    <p>Карточка модуля сразу показывает его настройки, избранное вынесено в отдельную вкладку.</p>
+  </div>
+
+  <div class="panel showcase">
+    <div class="switch" role="tablist">
+      <button role="tab" aria-selected="true" data-frame="combat"><i data-lucide="swords"></i>Combat</button>
+      <button role="tab" aria-selected="false" data-frame="movement"><i data-lucide="footprints"></i>Movement</button>
+      <button role="tab" aria-selected="false" data-frame="visuals"><i data-lucide="eye"></i>Visuals</button>
+      <button role="tab" aria-selected="false" data-frame="cosmetics"><i data-lucide="shirt"></i>Cosmetics</button>
+      <button role="tab" aria-selected="false" data-frame="pve"><i data-lucide="sprout"></i>PvE</button>
+      <button role="tab" aria-selected="false" data-frame="misc"><i data-lucide="sliders-horizontal"></i>Misc</button>
+    </div>
+    <div class="frames">
+      <div class="frame active" data-frame="combat"><img class="shot" src="assets/shots/combat.jpg" width="1456" height="866" alt="Меню клиента, вкладка Combat"></div>
+      <div class="frame" data-frame="movement"><img class="shot" src="assets/shots/movement.jpg" width="1456" height="866" alt="Меню клиента, вкладка Movement" loading="lazy"></div>
+      <div class="frame" data-frame="visuals"><img class="shot" src="assets/shots/visuals.jpg" width="1456" height="866" alt="Меню клиента, вкладка Visuals" loading="lazy"></div>
+      <div class="frame" data-frame="cosmetics"><img class="shot" src="assets/shots/cosmetics.jpg" width="1916" height="866" alt="Меню клиента, вкладка Cosmetics" loading="lazy"></div>
+      <div class="frame" data-frame="pve"><img class="shot" src="assets/shots/pve.jpg" width="1456" height="866" alt="Меню клиента, вкладка PvE" loading="lazy"></div>
+      <div class="frame" data-frame="misc"><img class="shot" src="assets/shots/misc.jpg" width="1456" height="866" alt="Меню клиента, вкладка Misc" loading="lazy"></div>
+    </div>
+  </div>
+
+  <div class="extras">
+    <div class="panel extra"><span class="ic"><i data-lucide="sliders-horizontal"></i></span><h3>Сохранение настроек</h3><p>Параметры всех модулей сохраняются и подхватываются при следующем запуске.</p></div>
+    <div class="panel extra"><span class="ic"><i data-lucide="users"></i></span><h3>Друзья</h3><p>Отдельный экран со списком друзей прямо в игре.</p></div>
+    <div class="panel extra"><span class="ic"><i data-lucide="map-pin"></i></span><h3>Метки</h3><p>Метки на мире с расстоянием до них и стрелкой к последней.</p></div>
+  </div>
+</section>
+
+<footer class="foot">
+  <img src="assets/logo-mark.png" alt="">
+  <span>Veylith Client</span>
+  <span class="mono">1.0.0 · MC 1.21.4</span>
+  <a class="sp" href="#/about">О клиенте</a>
+  <a href="#/gui">Интерфейс</a>
+  <a href="#/buy">Купить</a>
+</footer>
+</div>
+<div class="view" data-view="buy" data-title="Оплата · Veylith Client">
+<form class="pay" id="b-form" novalidate>
+  <div>
+    <h1 class="big">Оплата <i>доступа</i></h1>
+    <p class="sub">Ключ придёт на почту сразу после оплаты. Активировать его можно в профиле.</p>
+
+    <div class="step">
+      <h2>Срок подписки</h2>
+      <div class="opts plans">
+        <label class="opt"><input type="radio" name="plan" value="m1" data-name="1 месяц" data-price="299">
+          <span class="box"><span class="t">1 месяц</span><span class="p">299 <small>₽</small></span><span class="d">30 дней доступа</span></span></label>
+        <label class="opt"><input type="radio" name="plan" value="m3" data-name="3 месяца" data-price="699" checked>
+          <span class="box"><span class="tag">выгоднее</span><span class="t">3 месяца</span><span class="p">699 <small>₽</small></span><span class="d">233 ₽ в месяц</span></span></label>
+        <label class="opt"><input type="radio" name="plan" value="life" data-name="Навсегда" data-price="1499">
+          <span class="box"><span class="t">Навсегда</span><span class="p">1 499 <small>₽</small></span><span class="d">Все будущие обновления</span></span></label>
+      </div>
+    </div>
+
+    <div class="step">
+      <h2>Способ оплаты</h2>
+      <div class="opts methods">
+        <label class="opt"><input type="radio" name="method" value="card" data-name="Банковская карта" checked>
+          <span class="box"><i data-lucide="credit-card"></i><span class="t"><b>Карта</b><span>Visa, Mastercard, Мир</span></span></span></label>
+        <label class="opt"><input type="radio" name="method" value="sbp" data-name="СБП">
+          <span class="box"><i data-lucide="qr-code"></i><span class="t"><b>СБП</b><span>По QR-коду</span></span></span></label>
+        <label class="opt"><input type="radio" name="method" value="crypto" data-name="Криптовалюта">
+          <span class="box"><i data-lucide="bitcoin"></i><span class="t"><b>Крипта</b><span>USDT, BTC, TON</span></span></span></label>
+      </div>
+    </div>
+
+    <div class="step">
+      <h2>Куда отправить ключ</h2>
+      <div class="fields">
+        <div class="field" id="b-f-mail">
+          <label for="b-mail">Почта</label>
+          <input id="b-mail" type="email" placeholder="you@mail.ru" autocomplete="off">
+          <span class="msg"></span>
+        </div>
+        <div class="field promo" id="b-f-promo">
+          <label for="b-promo">Промокод</label>
+          <input id="b-promo" placeholder="Если есть" autocomplete="off">
+          <button type="button" class="apply" id="b-promo-btn">Применить</button>
+          <span class="msg"></span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <aside class="sum">
+    <div class="sum-h"><img src="assets/logo-mark.png" alt=""><div><b>Veylith Client</b><span>Minecraft 1.21.4 · Fabric</span></div></div>
+    <div class="lines">
+      <div><span>Срок</span><span id="b-s-plan">3 месяца</span></div>
+      <div><span>Оплата</span><span id="b-s-method">Банковская карта</span></div>
+      <div><span>Скидка</span><span id="b-s-disc">0 ₽</span></div>
+    </div>
+    <div class="total"><span>Итого</span><b id="b-s-total">699 ₽</b></div>
+    <label class="agree" id="b-agree-wrap"><input type="checkbox" id="b-agree">Согласен с правилами использования и политикой возврата</label>
+    <button class="btn" type="submit" id="b-pay"><i data-lucide="lock"></i><span>Оплатить</span></button>
+    <div class="secure"><i data-lucide="shield-check"></i>Демо-страница: платёж не проводится, данные никуда не отправляются</div>
+  </aside>
+</form>
+
+<div class="done" id="b-done" role="dialog" aria-modal="true" aria-labelledby="b-done-h">
+  <div class="dcard">
+    <div class="demo">Демо-режим</div>
+    <h3 class="big" id="b-done-h">Заказ оформлен</h3>
+    <p id="b-done-p"></p>
+    <a class="btn" href="#/profile">В профиль <i data-lucide="arrow-right"></i></a>
+  </div>
+</div>
+</div>
+
+<div class="view" data-view="register" data-title="Регистрация · Veylith Client">
+<main class="wrap">
+  <section class="panel card" id="r-card">
+    <form class="stack" id="r-form" novalidate>
+      <h1>Регистрация</h1>
+      <div class="alert" id="r-alert" role="alert"><i data-lucide="circle-alert"></i><span></span></div>
+
+      <div class="field" id="r-f-user">
+        <label for="r-user">Логин</label>
+        <input id="r-user" maxlength="24" autocomplete="username" spellcheck="false" placeholder="Латиница, цифры и _">
+        <span class="msg"></span>
+      </div>
+      <div class="field" id="r-f-pass">
+        <label for="r-pass">Пароль</label>
+        <input id="r-pass" type="password" maxlength="72" autocomplete="new-password" placeholder="От 8 символов">
+        <span class="msg"></span>
+      </div>
+      <div class="field" id="r-f-pass2">
+        <label for="r-pass2">Повторите пароль</label>
+        <input id="r-pass2" type="password" maxlength="72" autocomplete="new-password" placeholder="Ещё раз">
+        <span class="msg"></span>
+      </div>
+
+      <label class="agree" id="r-agree-wrap"><input type="checkbox" id="r-agree">Согласен с правилами использования и политикой возврата</label>
+      <button class="btn" type="submit" id="r-submit"><i data-lucide="user-plus"></i><span>Создать аккаунт</span></button>
+    </form>
+
+    <div class="ok" id="r-ok">
+      <span class="ic"><i data-lucide="check"></i></span>
+      <h1>Аккаунт создан</h1>
+      <a class="btn" href="#/profile"><i data-lucide="user-round"></i>Профиль</a>
+    </div>
+
+    <p class="alt">Уже есть аккаунт? <a href="#/profile">Войти</a></p>
+  </section>
+</main>
+</div>
+
+<div class="view" data-view="profile" data-title="Профиль · Veylith Client">
+<main class="wrap">
+  <section class="panel card">
+
+    <form class="pview" id="p-login" novalidate>
+      <h1>Вход</h1>
+      <div class="alert" id="p-alert" role="alert"><i data-lucide="circle-alert"></i><span></span></div>
+      <div class="field" id="p-f-user">
+        <label for="p-user">Логин</label>
+        <input id="p-user" maxlength="24" autocomplete="username" spellcheck="false">
+        <span class="msg"></span>
+      </div>
+      <div class="field" id="p-f-pass">
+        <label for="p-pass">Пароль</label>
+        <input id="p-pass" type="password" maxlength="72" autocomplete="current-password">
+        <span class="msg"></span>
+      </div>
+      <button class="btn" type="submit" id="p-login-btn"><i data-lucide="log-in"></i><span>Войти</span></button>
+      <p class="alt">Нет аккаунта? <a href="#/register">Регистрация</a></p>
+    </form>
+
+    <div class="pview" id="p-profile">
+      <div class="who">
+        <span class="ava"><i data-lucide="user-round"></i></span>
+        <h1 id="p-name"></h1>
+      </div>
+      <div class="rows">
+        <div class="row"><span>Подписка</span><b><i class="dot" id="p-sub-dot"></i><span id="p-sub"></span></b></div>
+        <div class="row"><span>Компьютер</span><b><i class="dot" id="p-hw-dot"></i><span id="p-hw"></span></b></div>
+        <div class="row"><span>Аккаунт создан</span><b id="p-since"></b></div>
+      </div>
+
+      <form class="keyrow" id="p-redeem" novalidate>
+        <div class="field" id="p-f-key">
+          <label for="p-key">Ключ</label>
+          <input id="p-key" maxlength="59" autocomplete="off" spellcheck="false" placeholder="XXXX-XXXX-XXXX-...">
+          <span class="msg"></span>
+        </div>
+        <button class="btn" type="submit" id="p-redeem-btn">Активировать</button>
+      </form>
+
+      <div class="acts">
+        <a class="btn" href="#/buy"><i data-lucide="credit-card"></i>Купить</a>
+        <button class="btn dark" type="button" id="p-out"><i data-lucide="log-out"></i>Выйти</button>
+      </div>
+    </div>
+
+  </section>
+</main>
+</div>
+
+<script src="https://unpkg.com/lucide@0.454.0/dist/umd/lucide.min.js"></script>
+<script src="https://unpkg.com/lenis@1.1.13/dist/lenis.min.js"></script>
+<script src="assets/config.js"></script>
+<script src="assets/account.js"></script>
+<script src="assets/main.js"></script>
+<script src="assets/app.js"></script>
+</body>
+</html>
