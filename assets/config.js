@@ -1,1 +1,2 @@
-window.VEYLITH_API = "https://veylith-server.onrender.com";
+/* Адрес API на Render без слэша на конце. Пусто: формы пишут, что сервер не подключён */
+window.VEYLITH_API = "";

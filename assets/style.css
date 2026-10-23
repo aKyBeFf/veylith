@@ -132,12 +132,6 @@ h1{font-size:clamp(46px,5.6vw,84px);line-height:1.02;margin:22px 0 20px}
 .mods b{font-weight:600;font-size:16px}
 .mods p{margin:0;color:var(--ink-3);font-size:14px;line-height:1.5}
 
-.facts{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin-top:16px}
-.fact{padding:24px 26px}
-.fact .ic{width:40px;height:40px;border-radius:11px;display:grid;place-items:center;background:var(--fill-3);color:var(--ink-2);margin-bottom:18px}
-.fact b{display:block;font-size:30px;font-weight:600;letter-spacing:-.02em;line-height:1.1}
-.fact span{color:var(--ink-3);font-size:14px}
-
 /* Меню клиента */
 .showcase{padding:clamp(14px,2.2vw,28px)}
 .switch{display:inline-flex;gap:4px;padding:4px;border-radius:12px;background:var(--fill-2);margin-bottom:22px}
@@ -169,7 +163,7 @@ h1{font-size:clamp(46px,5.6vw,84px);line-height:1.02;margin:22px 0 20px}
 .foot .sp{margin-left:auto}
 
 @media (max-width:980px){
-  .facts,.extras{grid-template-columns:1fr}
+  .extras{grid-template-columns:1fr}
   .nav{display:none}
   .top{grid-template-columns:auto 1fr}
   .mark{order:-1}
